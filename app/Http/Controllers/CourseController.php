@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use PDF;
+use Carbon\Carbon;
 
 class CourseController extends Controller
 {
@@ -286,7 +288,60 @@ class CourseController extends Controller
 
     public function ReportPdf() 
     {
-        dd('PDF');
+        set_time_limit(0);
+
+        $urgencies = array(
+            array(
+                'name' => 'Ana Maria Ferreira',
+                'ra' => '132456789',
+                'institution_name' => 'Santos',
+                'init_date' => '2018.1',
+                'end_date' => '2018.4'
+            ),
+            array(
+                'name' => 'Augusto Cavalcante',
+                'ra' => '132456789',
+                'institution_name' => 'Piracicaba',
+                'init_date' => '2017.1',
+                'end_date' => '2017.5'
+            ),
+            array(
+                'name' => 'Cláudia Cardoso',
+                'ra' => '132456789',
+                'institution_name' => 'Piracicaba',
+                'init_date' => '2018.2',
+                'end_date' => '2018.8'
+            ),
+            array(
+                'name' => 'Gilberto Mendes de Sá',
+                'ra' => '132456789',
+                'institution_name' => 'Bom Jesus dos Perdões',
+                'init_date' => '2018.1',
+                'end_date' => '2018.1'
+            ),
+            array(
+                'name' => 'Gustavo Roberto Lima',
+                'ra' => '132456789',
+                'institution_name' => 'Espírito Santo do Pinhal',
+                'init_date' => '2019.2',
+                'end_date' => '2019.11'
+            ),
+            array(
+                'name' => 'Selina Rodrigues',
+                'ra' => '132456789',
+                'institution_name' => 'Itaquaquecetuba',
+                'init_date' => '2018.1',
+                'end_date' => '2018.2'
+            )
+        );
+        
+        $pdf = PDF::loadView('pdf.pdf', ['urgencies' => $urgencies])->setPaper('a4', 'landscape');
+
+        return $pdf->download('Title PDF - '.Carbon::now()->format('d-m-Y').'.pdf');
+
+        // Se quiser que fique no formato a4 retrato: ->setPaper('a4', 'landscape')
+        //return \PDF::loadView('pdf.pdf', compact('urgencies'))->setPaper('a4', 'landscape')->download('audits.pdf');
+               
     }
 
     public function ReportExcel()
