@@ -240,7 +240,7 @@ class CourseController extends Controller
     {
         $students = array(
             array(
-                'name' => 'Ana Maria Ferreira',
+                'name' => 'Ana Maria Ferreira dos Santos Brandão Vieira',
                 'ra' => '132456789',
                 'institution_name' => 'Santos',
                 'init_date' => '2018.1',
@@ -288,11 +288,11 @@ class CourseController extends Controller
 
     public function ReportPdf() 
     {
+        ini_set('max_execution_time', 0);
         set_time_limit(0);
-
         $urgencies = array(
             array(
-                'name' => 'Ana Maria Ferreira',
+                'name' => 'Ana Maria Ferreira dos Santos Brandão Vieira',
                 'ra' => '132456789',
                 'institution_name' => 'Santos',
                 'init_date' => '2018.1',
@@ -336,11 +336,9 @@ class CourseController extends Controller
         );
         
         $pdf = PDF::loadView('pdf.pdf', ['urgencies' => $urgencies])->setPaper('a4', 'landscape');
-
-        return $pdf->download('Title PDF - '.Carbon::now()->format('d-m-Y').'.pdf');
-
-        // Se quiser que fique no formato a4 retrato: ->setPaper('a4', 'landscape')
-        //return \PDF::loadView('pdf.pdf', compact('urgencies'))->setPaper('a4', 'landscape')->download('audits.pdf');
+                
+        //return $pdf->download('Title PDF - '.Carbon::now()->format('H:i:s d-m-Y').'.pdf');
+        return $pdf->download('pdf.pdf');
                
     }
 
