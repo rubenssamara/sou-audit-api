@@ -67,7 +67,7 @@ top: -80px;
 <body>             
 <img alt="Univesp" src="{{ $path }}univesp.png" style="margin-bottom: 35px;">
 <div class="text-center">
- <h1>Auditoria por Urgência por Prazo</h1>
+ <h1>AUDITORIA POR URGÊNCIA POR PRAZO</h1>
 </div>
 <div id="tudo">
     @if(isset($urgencies))

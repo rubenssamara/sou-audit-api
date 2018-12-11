@@ -20,15 +20,16 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 // EDUARDO
 Route::resources([
-    'course' => 'CourseController',
+
+    'course' => 'AuditCourseController',
 ]);
 
-Route::get('filter/{filter}', 'CourseController@getCourseOrInstitution');
-Route::get('legislation', 'CourseController@Legislation');
-Route::get('urgency', 'CourseController@UrgencyDeadline');
-Route::get('students_enabled', 'CourseController@EnabledStudents');
-Route::get('report/pdf', 'CourseController@ReportPdf');
-Route::get('report/excel', 'CourseController@ReportExcel');
+Route::get('filter/{filter}','AuditCourseController@getCourseOrInstitution');
+Route::get('legislation','AuditCourseController@Legislation');
+Route::get('urgency','AuditCourseController@UrgencyDeadline');
+Route::get('students_enabled','AuditCourseController@EnabledStudents');
+Route::get('report/pdf','AuditCourseController@ReportPdf');
+Route::get('report/excel','AuditCourseController@ReportExcel');
 
 // LUCAS
 Route::resources([

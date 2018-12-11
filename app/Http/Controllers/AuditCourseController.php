@@ -4,15 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use PDF;
+use App\Exports\AuditCourseExport;
+use Excel;
 use Carbon\Carbon;
-
-class CourseController extends Controller
+class AuditCourseController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+   
     public function index()
     {
         $data['course'] = array(
@@ -50,7 +52,7 @@ class CourseController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->course_name);
+        //dd($request->course_name);
     }
 
     /**
@@ -107,7 +109,7 @@ class CourseController extends Controller
      */
     public function update(Request $request, $id)
     {
-        dd('Atualizando o curso com o ID igual a: ' . $id);
+        //dd('Atualizando o curso com o ID igual a: ' . $id);
     }
 
     /**
@@ -118,7 +120,7 @@ class CourseController extends Controller
      */
     public function destroy($id)
     {
-        dd('Removendo o curso com o ID igual a: ' . $id);
+        //dd('Removendo o curso com o ID igual a: ' . $id);
     }
 
     public function getCourseOrInstitution($filter)
@@ -336,15 +338,20 @@ class CourseController extends Controller
         );
 
         $pdf = PDF::loadView('pdf.pdf', ['urgencies' => $urgencies])->setPaper('a4', 'landscape');
+<<<<<<< HEAD:app/Http/Controllers/CourseController.php
 
         //return $pdf->download('Title PDF - '.Carbon::now()->format('H:i:s d-m-Y').'.pdf');
         return $pdf->download('pdf.pdf');
 
+=======
+                
+        return $pdf->download('Auditoria_urgentes - '.Carbon::now()->format('H:i:s d-m-Y').'.pdf');
+>>>>>>> upstream/devel:app/Http/Controllers/AuditCourseController.php
     }
 
     public function ReportExcel()
-    {
-        dd('EXCEL');
+    {   
+        return Excel::download(new AuditCourseExport, 'AUDITORIA.xlsx');
     }
 
     public function AuditStatus()
