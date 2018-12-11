@@ -20,28 +20,30 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 // EDUARDO
 Route::resources([
-    'course' => 'CourseController',   
+    'course' => 'CourseController',
 ]);
 
-Route::get('filter/{filter}','CourseController@getCourseOrInstitution');
-Route::get('legislation','CourseController@Legislation');
-Route::get('urgency','CourseController@UrgencyDeadline');
-Route::get('students_enabled','CourseController@EnabledStudents');
-Route::get('report/pdf','CourseController@ReportPdf');
-Route::get('report/excel','CourseController@ReportExcel');
+Route::get('filter/{filter}', 'CourseController@getCourseOrInstitution');
+Route::get('legislation', 'CourseController@Legislation');
+Route::get('urgency', 'CourseController@UrgencyDeadline');
+Route::get('students_enabled', 'CourseController@EnabledStudents');
+Route::get('report/pdf', 'CourseController@ReportPdf');
+Route::get('report/excel', 'CourseController@ReportExcel');
 
 // LUCAS
 Route::resources([
-    
-   
+
+
 ]);
 // RUBENS
 Route::resources([
-    
-   
+
 ]);
+Route::get('audit_status', 'CourseController@AuditStatus');
+
+
 // SERMAR
 Route::resources([
-    
-   
+
+
 ]);

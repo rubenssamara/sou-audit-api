@@ -14,7 +14,7 @@ class CourseController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   
+    {
         $data['course'] = array(
             array(
                 'id' => '1',
@@ -45,7 +45,7 @@ class CourseController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -56,11 +56,11 @@ class CourseController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {   
+    {
         $data['course'] = array(
             array(
                 'id' => '1',
@@ -89,7 +89,7 @@ class CourseController extends Controller
 
         foreach ($data['course'] as $c) {
 
-            if($c['id'] == $id) {
+            if ($c['id'] == $id) {
                 $course = $c;
                 break;
             }
@@ -101,8 +101,8 @@ class CourseController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -113,7 +113,7 @@ class CourseController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
@@ -121,7 +121,7 @@ class CourseController extends Controller
         dd('Removendo o curso com o ID igual a: ' . $id);
     }
 
-    public function getCourseOrInstitution($filter) 
+    public function getCourseOrInstitution($filter)
     {
         $data['course'] = array(
             array(
@@ -137,7 +137,7 @@ class CourseController extends Controller
             array(
                 'id' => '3',
                 'course_name' => 'Ciências Contábeis',
-                'institution_name' => 'UNESP'
+                'institution_name' => 'UrgencyDeadline'
             )
         );
 
@@ -145,7 +145,7 @@ class CourseController extends Controller
 
         foreach ($data['course'] as $c) {
 
-            if($c['course_name'] == $filter || $c['institution_name'] == $filter) {
+            if ($c['course_name'] == $filter || $c['institution_name'] == $filter) {
                 $course = $c;
                 break;
             }
@@ -154,7 +154,7 @@ class CourseController extends Controller
         return response()->json($course);
     }
 
-    public function Legislation() 
+    public function Legislation()
     {
         $data['legislation'] = array(
             array(
@@ -186,7 +186,7 @@ class CourseController extends Controller
         return response()->json($data);
     }
 
-    public function UrgencyDeadline() 
+    public function UrgencyDeadline()
     {
         $urgency = array(
             array(
@@ -236,7 +236,7 @@ class CourseController extends Controller
         return response()->json($urgency);
     }
 
-    public function EnabledStudents() 
+    public function EnabledStudents()
     {
         $students = array(
             array(
@@ -286,7 +286,7 @@ class CourseController extends Controller
         return response()->json($students);
     }
 
-    public function ReportPdf() 
+    public function ReportPdf()
     {
         ini_set('max_execution_time', 0);
         set_time_limit(0);
@@ -334,16 +334,48 @@ class CourseController extends Controller
                 'end_date' => '2018.2'
             )
         );
-        
+
         $pdf = PDF::loadView('pdf.pdf', ['urgencies' => $urgencies])->setPaper('a4', 'landscape');
-                
+
         //return $pdf->download('Title PDF - '.Carbon::now()->format('H:i:s d-m-Y').'.pdf');
         return $pdf->download('pdf.pdf');
-               
+
     }
 
     public function ReportExcel()
     {
         dd('EXCEL');
+    }
+
+    public function AuditStatus()
+    {
+        $audit_status = [
+            [
+                'name' => 'João Silva Junior',
+                'ra' => '132456789',
+                'institution_name' => 'Santos',
+                'init_date' => '2018.1',
+                'end_date' => '2018.4',
+                'assigned_date' => '12/09/2018'
+            ],
+            [
+                'name' => 'Ana Maria Ferreira dos Santos Brandão Vieira',
+                'ra' => '132456789',
+                'institution_name' => 'Santos',
+                'init_date' => '2018.1',
+                'end_date' => '2018.4',
+                'assigned_date' => '12/09/2018'
+            ],
+            [
+                'name' => 'Rogério Ceni',
+                'ra' => '132456789',
+                'institution_name' => 'São Vicente',
+                'init_date' => '2018.3',
+                'end_date' => '2018.10',
+                'assigned_date' => '15/11/2018'
+            ]
+        ];
+
+        return response()->json($audit_status);
     }
 }
