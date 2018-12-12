@@ -9,7 +9,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 // EDUARDO
 Route::resources([
-    'course' => 'AuditCourseController',   
+    'course' => 'AuditCourseController',  
 ]);
 
 Route::get('filter/{filter}','AuditCourseController@getCourseOrInstitution');
@@ -22,20 +22,17 @@ Route::get('report/excel','AuditCourseController@ReportExcel');
 // LUCAS
 Route::resources([
     'student' => 'StudentController',
-   
 ]);
 
-Route::get('student/','StudentController@show'); //lista todos alunos
-Route::get('student-list/{filter}','StudentController@StudentResearch'); // faz pesquisa na lista de aluno
-Route::get('student-report/pdf','StudentController@ReportPdf'); //rotas de Relatorios
-Route::get('report/excel','StudentController@ReportExcel');
+Route::get('student/','AuditStudentController@show'); //lista todos alunos
+Route::get('student-list/{filter}','AuditStudentController@StudentResearch'); // faz pesquisa na lista de aluno
+Route::get('student-report/pdf','AuditStudentController@ReportPdf'); //rotas de Relatorios
+Route::get('report/excel','AuditStudentController@ReportExcel');
 
-Route::get('/rejected','StudentController@RetainedStudent'); // Alunos rejeitados
-Route::get('rejected/{id}','StudentController@RetainedStudentList');//pesquisa alunos rejeitados
-Route::get('rejected-report','StudentController@RejectedReportPdf'); //rotas de Relatorios
-Route::get('rejected-report/excel','StudentController@RejectedReportExcel');
-
-
+Route::get('/rejected','AuditStudentController@RetainedStudent'); // Alunos rejeitados
+Route::get('rejected/{id}','AuditStudentController@RetainedStudentList');//pesquisa alunos rejeitados
+Route::get('rejected-report','AuditStudentController@RejectedReportPdf'); //rotas de Relatorios
+Route::get('rejected-report/excel','AuditStudentController@RejectedReportExcel');
 
 
 // RUBENS
@@ -48,4 +45,3 @@ Route::resources([
     
    
 ]);
-
