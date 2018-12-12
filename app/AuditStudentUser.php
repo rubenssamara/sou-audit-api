@@ -14,26 +14,23 @@ class AuditStudentUser extends Model
 
     // Protected fillable or inserts
     protected $fillable = [
-        'audit_students_id', 
+        'audit_student_id', 
         'user_id',
-        'student_id',
         'assignment_flag',
 
     ];
 
     // Protected define order
     protected $sorted = [
-        'audit_students_id', 
+        'audit_student_id', 
         'user_id', 
-        'student_id',
         'assignment_flag',
     ];
 
     // Protected guard
     protected $guarded = [
-        'audit_students_id', 
+        'audit_student_id', 
         'user_id', 
-        'student_id',
         'assignment_flag',
     ];
 
