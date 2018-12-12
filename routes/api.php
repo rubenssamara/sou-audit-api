@@ -16,3 +16,32 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+// EDUARDO
+Route::resources([
+    'course' => 'AuditCourseController',   
+]);
+
+Route::get('filter/{filter}','AuditCourseController@getCourseOrInstitution');
+Route::get('legislation','AuditCourseController@Legislation');
+Route::get('urgency','AuditCourseController@UrgencyDeadline');
+Route::get('students_enabled','AuditCourseController@EnabledStudents');
+Route::get('report/pdf','AuditCourseController@ReportPdf');
+Route::get('report/excel','AuditCourseController@ReportExcel');
+
+// LUCAS
+Route::resources([
+    
+   
+]);
+// RUBENS
+Route::resources([
+    
+   
+]);
+// SERMAR
+Route::resources([
+    
+   
+]);
