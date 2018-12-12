@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class RelationshipUsersAuditStudents extends Migration
+class RelationshipIndetitiesAuditIndetities extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class RelationshipUsersAuditStudents extends Migration
      */
     public function up()
     {
-        Schema::connection('mysql')->table('audit_students', function (Blueprint $table) {
-            $table->integer('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('sou_authentication.users');
+        Schema::connection('mysql')->table('audit_identities', function (Blueprint $table) {
+            $table->integer('indetity_id')->unsigned();
+            $table->foreign('indetity_id')->references('id')->on('sou_authentication.indetities');
         });
     }
 
@@ -27,8 +27,8 @@ class RelationshipUsersAuditStudents extends Migration
     public function down()
     {
         Schema::connection('mysql')->table('audit_students', function (Blueprint $table) {
-            $table->dropForeign('audit_students_user_id_foreign');
-            $table->dropColumn('user_id');
+            $table->dropForeign('audit_identities_indetity_id_foreign');
+            $table->dropColumn('indetity_id');
         });
     }
 }

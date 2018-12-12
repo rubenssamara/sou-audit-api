@@ -15,55 +15,55 @@ class AuditCourse extends Model
     // Protected fillable or inserts
     protected $fillable = [
         'id', 
-        'activity_plane_flag', 
-        'comprimisse_term_flag',
+        'course_id',
         'course_name_flag',
-        'mandatory_intership_flag',
-        'medial_global_flag',
-        'payload_complished_flag',
-        'payload_total_flag',
-        'percent_frequency_flag',
-        'progress_course_flag',
-        'revenue_learn_flag',
-        'situation_flag',
         'type_course_flag',
-        'course_id'
+        'payload_total_flag',
+        'payload_complished_flag',
+        'progress_course_flag',
+        'medial_global_flag',
+        'revenue_learn_flag',
+        'percent_frequency_flag',
+        'situation_flag',
+        'mandatory_intership_flag',
+        'comprimisse_term_flag',
+        'activity_plane_flag', 
     ];
 
     // Protected define order
     protected $sorted = [
         'id', 
-        'activity_plane_flag', 
-        'comprimisse_term_flag',
+        'course_id',
         'course_name_flag',
-        'mandatory_intership_flag',
-        'medial_global_flag',
-        'payload_complished_flag',
-        'payload_total_flag',
-        'percent_frequency_flag',
-        'progress_course_flag',
-        'revenue_learn_flag',
-        'situation_flag',
         'type_course_flag',
-        'course_id'
+        'payload_total_flag',
+        'payload_complished_flag',
+        'progress_course_flag',
+        'medial_global_flag',
+        'revenue_learn_flag',
+        'percent_frequency_flag',
+        'situation_flag',
+        'mandatory_intership_flag',
+        'comprimisse_term_flag',
+        'activity_plane_flag', 
     ];
 
     // Protected guard
     protected $guarded = [
         'id', 
-        'activity_plane_flag', 
-        'comprimisse_term_flag',
+        'course_id',
         'course_name_flag',
-        'mandatory_intership_flag',
-        'medial_global_flag',
-        'payload_complished_flag',
-        'payload_total_flag',
-        'percent_frequency_flag',
-        'progress_course_flag',
-        'revenue_learn_flag',
-        'situation_flag',
         'type_course_flag',
-        'course_id'
+        'payload_total_flag',
+        'payload_complished_flag',
+        'progress_course_flag',
+        'medial_global_flag',
+        'revenue_learn_flag',
+        'percent_frequency_flag',
+        'situation_flag',
+        'mandatory_intership_flag',
+        'comprimisse_term_flag',
+        'activity_plane_flag', 
     ];
 
     // Protected hidden fields
