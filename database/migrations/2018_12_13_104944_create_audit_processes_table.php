@@ -18,7 +18,7 @@ class CreateAuditProcessesTable extends Migration
             $table->integer('student_id')->nullable();
             $table->integer('user_id')->nullable();
             $table->dateTime('attributed_date')->nullable();
-            $table->tinyInteger('accept_law');
+            $table->tinyInteger('accept_law')->nullable();
             $table->string('status', 45)->nullable();
             $table->tinyInteger('internship')->nullable();
             $table->tinyInteger('commitment_term')->nullable();

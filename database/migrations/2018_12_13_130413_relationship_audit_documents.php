@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class RelationshipDocuments extends Migration
+class RelationshipAuditDocuments extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class RelationshipDocuments extends Migration
      */
     public function up()
     {
-        Schema::table('documents', function (Blueprint $table) {
+        Schema::table('audit_documents', function (Blueprint $table) {
             $table->integer('audit_process_id')->unsigned();
             $table->foreign('audit_process_id')->references('id')->on('audit_processes');
             $table->integer('document_type_id')->unsigned();
@@ -29,10 +29,10 @@ class RelationshipDocuments extends Migration
      */
     public function down()
     {
-        Schema::table('documents', function (Blueprint $table) {
-            $table->dropForeign('documents_audit_process_id_foreign');
+        Schema::table('audit_documents', function (Blueprint $table) {
+            $table->dropForeign('audit_documents_audit_process_id_foreign');
             $table->dropColumn('audit_process_id');
-            $table->dropForeign('documents_document_type_id_foreign');
+            $table->dropForeign('audit_documents_document_type_id_foreign');
             $table->dropColumn('document_type_id');
         });
     }

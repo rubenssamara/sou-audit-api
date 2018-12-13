@@ -4,15 +4,15 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Document extends Model
+class AuditDocument extends Model
 {
     // Protected table name
-    protected $table = 'documents';
+    protected $table = 'audit_documents';
 
     // Protected fillable or inserts
     protected $fillable = [
         'autenticate',
-        'image', // FIXME: Modifies name
+        'attachment',
         'audit_process_id',
         'type_document_id',
     ];
@@ -20,7 +20,7 @@ class Document extends Model
     // Protected define order
     protected $sorted = [
         'autenticate',
-        'image', // FIXME: Modifies name
+        'attachment',
         'audit_process_id',
         'type_document_id',
     ];

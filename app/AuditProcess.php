@@ -71,8 +71,8 @@ class AuditProcess extends Model
         return $this->hasMany(ItemAuditProcesses::class);
     }
 
-    public function documents()
+    public function auditDocuments()
     {
-        return $this->hasMany(Document::class);
+        return $this->hasMany(AuditDocument::class);
     }
 }

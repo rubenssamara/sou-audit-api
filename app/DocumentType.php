@@ -34,8 +34,8 @@ class DocumentType extends Model
     ];
 
     // Relationships
-    public function documents()
+    public function auditDocuments()
     {
-        return $this->hasMany(Document::class);
+        return $this->hasMany(AuditDocument::class);
     }
 }
