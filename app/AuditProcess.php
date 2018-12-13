@@ -56,9 +56,9 @@ class AuditProcess extends Model
     ];
 
     // Relationships
-    public function responsibles()
+    public function auditResponsibles()
     {
-        return $this->hasMany(Responsible::class);
+        return $this->hasMany(AuditResponsible::class);
     }
 
     public function auditType()

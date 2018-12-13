@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class RelationshipResponsibles extends Migration
+class RelationshipAuditResponsibles extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class RelationshipResponsibles extends Migration
      */
     public function up()
     {
-        Schema::table('responsibles', function (Blueprint $table) {
+        Schema::table('audit_responsibles', function (Blueprint $table) {
             $table->integer('audit_process_id')->unsigned();
             $table->foreign('audit_process_id')->references('id')->on('audit_processes');
             $table->timestamps();
@@ -27,8 +27,8 @@ class RelationshipResponsibles extends Migration
      */
     public function down()
     {
-        Schema::table('responsibles', function (Blueprint $table) {
-            $table->dropForeign('responsibles_audit_process_id_foreign');
+        Schema::table('audit_responsibles', function (Blueprint $table) {
+            $table->dropForeign('audit_responsibles_audit_process_id_foreign');
             $table->dropColumn('audit_process_id');
         });
     }

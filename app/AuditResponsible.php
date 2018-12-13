@@ -4,10 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Responsible extends Model
+class AuditResponsible extends Model
 {
     // Protected table name
-    protected $table = 'responsibles';
+    protected $table = 'audit_responsibles';
 
     // Protected fillable or inserts
     protected $fillable = [
