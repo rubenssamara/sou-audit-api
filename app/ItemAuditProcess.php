@@ -16,7 +16,6 @@ class ItemAuditProcess extends Model
         'after',
         'inconsistency',
         'audit_process_id',
-        'location_record',
     ];
 
     // Protected define order
@@ -26,7 +25,6 @@ class ItemAuditProcess extends Model
         'after',
         'inconsistency',
         'audit_process_id',
-        'location_record',
     ];
 
     // Protected guard

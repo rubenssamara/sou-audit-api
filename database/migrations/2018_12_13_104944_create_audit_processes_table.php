@@ -26,6 +26,7 @@ class CreateAuditProcessesTable extends Migration
             $table->char('process_number', 50)->nullable();
             $table->tinyInteger('ppi')->nullable();
             $table->tinyInteger('public_school')->nullable();
+            $table->string('location_record', 100)->nullable();
         });
     }
 

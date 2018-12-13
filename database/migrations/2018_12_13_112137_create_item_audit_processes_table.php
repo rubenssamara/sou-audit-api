@@ -19,7 +19,6 @@ class CreateItemAuditProcessesTable extends Migration
             $table->string('before', 255)->nullable();
             $table->string('after', 255)->nullable();
             $table->tinyInteger('inconsistency')->nullable();
-            $table->string('location_record', 150)->nullable();
         });
     }
 

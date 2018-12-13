@@ -23,6 +23,7 @@ class AuditProcess extends Model
         'process_number',
         'ppi',
         'public_school', 
+        'location_record',
     ];
 
     // Protected define order
@@ -39,6 +40,7 @@ class AuditProcess extends Model
         'process_number',
         'ppi',
         'public_school', 
+        'location_record',
     ];
 
     // Protected guard
