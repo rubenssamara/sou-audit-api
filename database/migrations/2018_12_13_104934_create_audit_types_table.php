@@ -13,7 +13,7 @@ class CreateAuditTypesTable extends Migration
      */
     public function up()
     {
-        Schema::connection('mysql')->create('audit_types', function (Blueprint $table) {
+        Schema::create('audit_types', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name', 45)->nullable();
             $table->timestamps();
@@ -27,6 +27,6 @@ class CreateAuditTypesTable extends Migration
      */
     public function down()
     {
-        Schema::connection('mysql')->createdropIfExists('audit_types');
+        Schema::createdropIfExists('audit_types');
     }
 }

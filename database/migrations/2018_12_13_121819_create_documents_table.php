@@ -13,7 +13,7 @@ class CreateDocumentsTable extends Migration
      */
     public function up()
     {
-        Schema::connection('mysql')->create('documents', function (Blueprint $table) {
+        Schema::create('documents', function (Blueprint $table) {
             $table->increments('id');
             $table->string('autenticate', 45)->nullable();
             $table->text('image')->nullable(); // FIXME: Modifies name field & data type
@@ -27,6 +27,6 @@ class CreateDocumentsTable extends Migration
      */
     public function down()
     {
-        Schema::connection('mysql')->dropIfExists('documents');
+        Schema::dropIfExists('documents');
     }
 }

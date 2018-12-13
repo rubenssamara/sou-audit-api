@@ -13,7 +13,7 @@ class CreateDocumentTypesTable extends Migration
      */
     public function up()
     {
-        Schema::connection('mysql')->create('document_types', function (Blueprint $table) {
+        Schema::create('document_types', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name', 45);
             $table->timestamps();
@@ -27,6 +27,6 @@ class CreateDocumentTypesTable extends Migration
      */
     public function down()
     {
-        Schema::connection('mysql')->dropIfExists('document_types');
+        Schema::dropIfExists('document_types');
     }
 }

@@ -13,9 +13,9 @@ class RelationshipItemAuditProcesses extends Migration
      */
     public function up()
     {
-        Schema::connection('mysql')->table('item_audit_processes', function (Blueprint $table) {
+        Schema::table('item_audit_processes', function (Blueprint $table) {
             $table->integer('audit_process_id')->unsigned();
-            $table->foreign('audit_process_id')->references('id')->on('audit_processes')->onDelete('cascade');
+            $table->foreign('audit_process_id')->references('id')->on('audit_processes');
             $table->timestamps();
         });
     }
@@ -27,7 +27,7 @@ class RelationshipItemAuditProcesses extends Migration
      */
     public function down()
     {
-        Schema::connection('mysql')->table('item_audit_processes', function (Blueprint $table) {
+        Schema::table('item_audit_processes', function (Blueprint $table) {
             $table->dropForeign('item_audit_processes_audit_process_id_foreign');
             $table->dropColumn('audit_process_id');
         });

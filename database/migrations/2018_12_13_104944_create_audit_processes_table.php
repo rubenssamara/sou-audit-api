@@ -13,9 +13,10 @@ class CreateAuditProcessesTable extends Migration
      */
     public function up()
     {
-        Schema::connection('mysql')->create('audit_processes', function (Blueprint $table) {
+        Schema::create('audit_processes', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->nullable();
+            $table->integer('student_id')->nullable();
             $table->dateTime('attributed_date')->nullable();
             $table->tinyInteger('accept_law');
             $table->string('status', 45)->nullable();
@@ -35,6 +36,6 @@ class CreateAuditProcessesTable extends Migration
      */
     public function down()
     {
-        Schema::connection('mysql')->dropIfExists('audit_processes');
+        Schema::dropIfExists('audit_processes');
     }
 }

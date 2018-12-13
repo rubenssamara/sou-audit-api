@@ -13,7 +13,7 @@ class CreateItemAuditProcessesTable extends Migration
      */
     public function up()
     {
-        Schema::connection('mysql')->create('item_audit_processes', function (Blueprint $table) {
+        Schema::create('item_audit_processes', function (Blueprint $table) {
             $table->increments('id');
             $table->string('field_name', 50)->nullable();
             $table->string('before', 255)->nullable();
@@ -30,6 +30,6 @@ class CreateItemAuditProcessesTable extends Migration
      */
     public function down()
     {
-        Schema::connection('mysql')->dropIfExists('item_audit_processes');
+        Schema::dropIfExists('item_audit_processes');
     }
 }

@@ -13,7 +13,7 @@ class CreateResponsiblesTable extends Migration
      */
     public function up()
     {
-        Schema::connection('mysql')->create('responsibles', function (Blueprint $table) {
+        Schema::create('responsibles', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->nullable();
         });
@@ -26,6 +26,6 @@ class CreateResponsiblesTable extends Migration
      */
     public function down()
     {
-        Schema::connection('mysql')->dropIfExists('responsibles');
+        Schema::dropIfExists('responsibles');
     }
 }

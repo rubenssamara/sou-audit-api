@@ -6,9 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Responsible extends Model
 {
-    // Protected & create connection
-    protected $connection = 'mysql';
-
     // Protected table name
     protected $table = 'responsibles';
 
