@@ -15,8 +15,8 @@ class CreateAuditProcessesTable extends Migration
     {
         Schema::create('audit_processes', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id')->nullable();
             $table->integer('student_id')->nullable();
+            $table->integer('user_id')->nullable();
             $table->dateTime('attributed_date')->nullable();
             $table->tinyInteger('accept_law');
             $table->string('status', 45)->nullable();

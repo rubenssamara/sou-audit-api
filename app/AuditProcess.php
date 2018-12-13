@@ -54,4 +54,25 @@ class AuditProcess extends Model
         'created_at', 
         'update_at'
     ];
+
+    // Relationships
+    public function responsibles()
+    {
+        return $this->hasMany(Responsible::class);
+    }
+
+    public function auditType()
+    {
+        return $this->belongsTo(AuditType::class);
+    }
+
+    public function itemAuditProcesses()
+    {
+        return $this->hasMany(ItemAuditProcesses::class);
+    }
+
+    public function documents()
+    {
+        return $this->hasMany(Document::class);
+    }
 }

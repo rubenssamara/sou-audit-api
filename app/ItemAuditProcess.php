@@ -42,4 +42,10 @@ class ItemAuditProcess extends Model
         'created_at', 
         'update_at'
     ];
+
+    // Relationships
+    public function auditProcess()
+    {
+        return $this->belongsTo(AuditProcess::class);
+    }
 }

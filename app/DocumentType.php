@@ -32,4 +32,10 @@ class DocumentType extends Model
         'created_at', 
         'update_at'
     ];
+
+    // Relationships
+    public function documents()
+    {
+        return $this->hasMany(Document::class);
+    }
 }

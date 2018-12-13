@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Documents extends Model
+class Document extends Model
 {
     // Protected table name
     protected $table = 'documents';
@@ -38,4 +38,15 @@ class Documents extends Model
         'created_at', 
         'update_at'
     ];
+
+    // Relationships
+    public function auditProcess()
+    {
+        return $this->belongsTo(AuditProcess::class);
+    }
+
+    public function documentType()
+    {
+        return $this->belongsTo(DocumentType::class);
+    }
 }

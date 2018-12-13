@@ -32,4 +32,10 @@ class AuditType extends Model
         'created_at', 
         'update_at'
     ];
+
+    // Relationships
+    public function auditProcesses()
+    {
+        return $this->hasMany(AuditProcess::class);
+    }
 }
